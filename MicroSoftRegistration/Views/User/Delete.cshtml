@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using MicroSoftRegistration.Data; 
+@model Student
+
+<form method="post">
+    <h3>Delete Student?</h3>
+
+    <div>
+        <label>First Name</label>
+        <input type="text" value="@Model.FName" readonly="readonly" />
+    </div>
+
+    <div>
+        <label>Last Name</label>
+        <input type="text" value="@Model.LName" readonly="readonly" />
+    </div>
+
+    <div>
+        <label>Career Path</label>
+        <input type="text" value="@Model.CareerPath" readonly="readonly" />
+    </div>
+
+    <input type="submit" value="Delete" />
+
+</form>
+

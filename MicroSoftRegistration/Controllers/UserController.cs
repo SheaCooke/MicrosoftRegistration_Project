@@ -76,5 +76,26 @@ namespace MicroSoftRegistration.Controllers
 
 
         }
+
+
+
+
+        [Route("/User/Delete/{id}")]
+        public IActionResult Delete(int id)
+        {
+            return View("Delete", StudentData.GetById(id));
+        }
+
+
+        [HttpPost]
+        [Route("/User/Delete/{id}")]
+        public IActionResult DeletePost(int id)
+        {
+            StudentData.RemoveById(id);
+            return Redirect("/Student/StudentInfo");
+        }
+
+
+
     }
 }
