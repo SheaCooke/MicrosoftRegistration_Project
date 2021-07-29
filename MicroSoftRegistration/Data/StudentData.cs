@@ -15,6 +15,11 @@ namespace MicroSoftRegistration.Data
             Students.Add(newStudent);
         }
 
+        public static Student GetById(int id)
+        {
+            return Students.First(x => x.StudentID == id);
+        }
+
 
 
 

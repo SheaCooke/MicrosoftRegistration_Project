@@ -19,6 +19,7 @@ namespace MicroSoftRegistration.Controllers
         public IActionResult Register()
         {
             RegisterUserViewModel registerUserViewModel = new RegisterUserViewModel();
+            
 
             return View(registerUserViewModel);
         }
@@ -33,7 +34,7 @@ namespace MicroSoftRegistration.Controllers
                     FName = registerUserViewModel.FName,
                     LName = registerUserViewModel.LName,
                     CareerPath = registerUserViewModel.CareerPath,
-                    //StudentID = registerUserViewModel.StudentID
+                    
                 };
 
                 StudentData.Add(newStudent);
@@ -41,6 +42,39 @@ namespace MicroSoftRegistration.Controllers
             }
 
             return View(registerUserViewModel);
+        }
+
+
+
+        [Route("/User/Edit/{id}")]
+        public IActionResult Edit(int id)
+        {
+            ViewBag.Student = StudentData.GetById(id);
+            RegisterUserViewModel registerUserViewModel = new RegisterUserViewModel();
+
+            return View("Edit", registerUserViewModel);
+        }
+
+
+
+        [HttpPost]
+        [Route("/User/Edit/{id}")]
+        public IActionResult Edit(RegisterUserViewModel registerUserViewModel, int id)
+        {
+            if (ModelState.IsValid)
+            {
+                StudentData.Students.Where(x => x.StudentID == id).ToList().ForEach(x => x.FName = registerUserViewModel.FName);
+                StudentData.Students.Where(x => x.StudentID == id).ToList().ForEach(x => x.LName = registerUserViewModel.LName);
+                StudentData.Students.Where(x => x.StudentID == id).ToList().ForEach(x => x.CareerPath = registerUserViewModel.CareerPath);
+
+
+
+                return Redirect("/Student/StudentInfo");
+            }
+
+            return Redirect($"/User/Edit/{id}");
+
+
         }
     }
 }

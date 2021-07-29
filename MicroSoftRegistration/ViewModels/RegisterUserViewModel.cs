@@ -22,7 +22,7 @@ namespace MicroSoftRegistration.ViewModels
         [Required(ErrorMessage = "Select an option")]
         public CareerPathType CareerPath { get; set; }
 
-        public List<SelectListItem> CareerPathList = new List<SelectListItem>
+        public  List<SelectListItem> CareerPathList = new List<SelectListItem>
         {
             new SelectListItem(CareerPathType.Artificial_Intelligence.ToString(), ((int)CareerPathType.Artificial_Intelligence).ToString()),
             new SelectListItem(CareerPathType.Machine_Learning.ToString(), ((int)CareerPathType.Machine_Learning).ToString()),

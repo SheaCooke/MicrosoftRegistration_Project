@@ -8,20 +8,22 @@
 
 
 
-<h3>Register</h3>
+<h3>Edit Student Information</h3>
 
 <form method="post">
 
+    <input type="hidden" value="@ViewBag.Student.StudentID" name="id" />
+
     <div>
         <label asp-for="FName">First Name</label>
-        <input asp-for="FName" type="text" />
+        <input asp-for="FName" type="text" value="@ViewBag.Student.FName" />
         <span asp-validation-for="FName"></span>
     </div>
 
 
     <div>
         <label asp-for="LName">Last Name</label>
-        <input asp-for="LName" type="text" />
+        <input asp-for="LName" type="text" value="@ViewBag.Student.LName" />
         <span asp-validation-for="LName"></span>
     </div>
 
@@ -31,7 +33,7 @@
         <span asp-validation-for="CareerPath"></span>
     </div>
 
-    <input type="submit" value="Register" />
+    <input type="submit" value="Edit" />
 
 
 
