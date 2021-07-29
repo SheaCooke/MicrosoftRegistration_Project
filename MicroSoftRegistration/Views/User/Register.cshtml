@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using MicroSoftRegistration.ViewModels
+@model RegisterUserViewModel
+
+
+
+<h3>Register</h3>
+
+<form method="post">
+
+    <div>
+        <label asp-for="FName">First Name</label>
+        <input asp-for="FName" type="text" />
+    </div>
+
+
+    <div>
+        <label asp-for="LName">Last Name</label>
+        <input asp-for="LName" type="text" />
+    </div>
+
+    <div>
+        <label asp-for="CareerPath">Career Paths</label>
+        <select asp-for="CareerPath" asp-items="Model.CareerPathList"></select>
+    </div>
+
+    <input type="submit" value="Register" />
+
+
+
+
+
+</form>

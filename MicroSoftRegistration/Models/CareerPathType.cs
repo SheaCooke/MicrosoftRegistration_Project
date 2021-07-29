@@ -5,7 +5,15 @@ using System.Threading.Tasks;
 
 namespace MicroSoftRegistration.Models
 {
-    public class CareerPathType
+    public enum CareerPathType
     {
+        Web_Development,
+        Devops,
+        Security,
+        Machine_Learning,
+        Artificial_Intelligence
+
+
+
     }
 }

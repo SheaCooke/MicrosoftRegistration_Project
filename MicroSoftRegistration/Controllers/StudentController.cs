@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MicroSoftRegistration.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,17 @@ namespace MicroSoftRegistration.Controllers
         {
             return View();
         }
+
+
+        public IActionResult StudentInfo()
+        {
+            return View(StudentData.Students);
+        }
+
+
+
+
+
+
     }
 }
