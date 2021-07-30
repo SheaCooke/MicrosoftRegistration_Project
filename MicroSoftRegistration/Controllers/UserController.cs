@@ -46,21 +46,23 @@ namespace MicroSoftRegistration.Controllers
 
 
 
-        [Route("/User/Edit/{id}")]
+        //[Route("/User/Edit/{id}")]
         public IActionResult Edit(int id)
         {
             ViewBag.Student = StudentData.GetById(id);
             RegisterUserViewModel registerUserViewModel = new RegisterUserViewModel();
 
-            return View("Edit", registerUserViewModel);
+            return View(registerUserViewModel);
         }
 
 
 
         [HttpPost]
-        [Route("/User/Edit/{id}")]
+        //[Route("/User/Edit/{id}")]
         public IActionResult Edit(RegisterUserViewModel registerUserViewModel, int id)
         {
+            //int id = registerUserViewModel.StudentID;
+
             if (ModelState.IsValid)
             {
                 StudentData.Students.Where(x => x.StudentID == id).ToList().ForEach(x => x.FName = registerUserViewModel.FName);
@@ -72,7 +74,9 @@ namespace MicroSoftRegistration.Controllers
                 return Redirect("/Student/StudentInfo");
             }
 
-            return Redirect($"/User/Edit/{id}");
+            ViewBag.Student = StudentData.GetById(id);
+
+            return View(registerUserViewModel);
 
 
         }

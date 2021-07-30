@@ -43,7 +43,7 @@
                                     <td>@i.FName</td>
                                     <td>@i.LName</td>
                                     <td>@i.CareerPath</td>
-                                    <td><a href="/User/Edit/@i.StudentID">|Edit</a></td>
+                                    <td><a asp-controller="User" asp-action="Edit" asp-route-id="@i.StudentID">|Edit</a></td>
                                     <td><a href="/User/Delete/@i.StudentID">|Delete</a></td>
                                 </tr>
 
