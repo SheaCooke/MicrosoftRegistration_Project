@@ -7,24 +7,25 @@
 @model Student
 
 <form method="post">
-    <h3>Delete Student?</h3>
+    <h3 class="centerAndBlue">Delete Student?</h3>
 
     <div>
         <label>First Name</label>
-        <input type="text" value="@Model.FName" readonly="readonly" />
+        <input type="text" value="@Model.FName" readonly="readonly" class="greyBG"/>
     </div>
 
     <div>
         <label>Last Name</label>
-        <input type="text" value="@Model.LName" readonly="readonly" />
+        <input type="text" value="@Model.LName" readonly="readonly" class="greyBG"/>
     </div>
 
     <div>
         <label>Career Path</label>
-        <input type="text" value="@Model.CareerPath" readonly="readonly" />
+        <input type="text" value="@Model.CareerPath" readonly="readonly" class="greyBG"/>
     </div>
-
-    <input type="submit" value="Delete" />
+    <br />
+    <input type="submit" class="btn btn-primary" value="Delete">
+    <a asp-controller="Student" asp-action="StudentInfo" class="btn btn-success" role="button">Go Back</a>
 
 </form>
 

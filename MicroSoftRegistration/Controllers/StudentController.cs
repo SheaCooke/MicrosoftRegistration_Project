@@ -24,12 +24,13 @@ namespace MicroSoftRegistration.Controllers
         [HttpPost]
         public IActionResult Results(string searchTerm)
         {
+            ViewBag.searchTerm = searchTerm;
             List<Student> resultsList = new List<Student>();
 
             if (string.IsNullOrEmpty(searchTerm))
             {
-                resultsList = StudentData.Students;
-                return View(resultsList);
+                //resultsList = StudentData.Students;
+                return Redirect("StudentInfo");
             }
             
 

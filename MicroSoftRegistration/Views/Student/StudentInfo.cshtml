@@ -5,12 +5,12 @@
 }
 @model List<Student>
 
-
-<form method="post" asp-controller="Student" asp-action="Results">
-    <input type="text" placeholder="Enter student first or last name." name="searchTerm" />
-    <input type="submit" value="Search" />
-</form>
-
+<div class="center">
+    <form method="post" asp-controller="Student" asp-action="Results">
+        <input type="text" placeholder="Enter student first or last name." name="searchTerm" />
+        <input type="submit" class="btn btn-primary" value="Search">
+    </form>
+</div>
 <br />
 <br />
 
@@ -19,7 +19,7 @@
 
 @if (Model.Count == 0)
             {
-                <p>No records yet...</p>
+                <p class="centerAndBlue">No records yet...</p>
             }
             else
             {

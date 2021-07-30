@@ -71,5 +71,44 @@ body {
 }
 
 input[type=text] {
-    width: 600px;
+    width: 1025px;
+}
+
+.center {
+    margin: auto;
+}
+
+.field-validation-error{
+    color: red;
+}
+
+.centerAndBlue{
+    text-align: center;
+    color: cornflowerblue;
+}
+
+.SearchTerm{
+    color: red;
+}
+
+.greyBG{
+    background-color: lightgray;
+}
+
+#registerButton {
+    margin: 0;
+    position: absolute;
+    
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#centerTitle{
+    text-align:center;
+}
+
+#center {
+    text-align: center;
+    font-weight: bold;
 }

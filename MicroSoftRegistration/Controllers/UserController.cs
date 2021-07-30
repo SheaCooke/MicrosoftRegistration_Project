@@ -46,7 +46,7 @@ namespace MicroSoftRegistration.Controllers
 
 
 
-        //[Route("/User/Edit/{id}")]
+        
         public IActionResult Edit(int id)
         {
             ViewBag.Student = StudentData.GetById(id);
@@ -58,10 +58,10 @@ namespace MicroSoftRegistration.Controllers
 
 
         [HttpPost]
-        //[Route("/User/Edit/{id}")]
+        
         public IActionResult Edit(RegisterUserViewModel registerUserViewModel, int id)
         {
-            //int id = registerUserViewModel.StudentID;
+            
 
             if (ModelState.IsValid)
             {

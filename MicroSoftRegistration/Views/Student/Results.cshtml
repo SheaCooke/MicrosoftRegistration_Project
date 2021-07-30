@@ -7,11 +7,19 @@
 
 @if (Model.Count == 0)
 {
-    <p>No results</p>
+    <p>No results were found for the search term <span class="SearchTerm">@ViewBag.searchTerm</span></p>
+    <a asp-controller="Student" asp-action="StudentInfo" class="btn btn-success" role="button">Go Back</a>
 }
 else
 {
-    <p>Search Results:</p>
+    if (Model.Count == 1)
+    {
+        <p>We found 1 student with the name <span class="SearchTerm">@ViewBag.searchTerm</span> </p>
+    }
+    else
+    {
+        <p>We found @Model.Count students with the name <span class="SearchTerm">@ViewBag.searchTerm</span></p>
+    }
     <br />
     <table class="table">
         <thead>
@@ -43,4 +51,5 @@ else
 
 
     </table>
+    <a asp-controller="Student" asp-action="StudentInfo" class="btn btn-success" role="button">Go Back</a>
 }
