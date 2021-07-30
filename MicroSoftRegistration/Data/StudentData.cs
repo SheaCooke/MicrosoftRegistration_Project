@@ -20,6 +20,10 @@ namespace MicroSoftRegistration.Data
             return Students.First(x => x.StudentID == id);
         }
 
+        
+
+
+
         public static void RemoveById(int id)
         {
             Students.Remove(GetById(id));

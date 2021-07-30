@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Student>
+
+@if (Model.Count == 0)
+{
+    <p>No results</p>
+}
+else
+{
+    <p>Search Results:</p>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Student ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Career Path</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>@i.StudentID</td>
+                    <td>@i.FName</td>
+                    <td>@i.LName</td>
+                    <td>@i.CareerPath</td>
+                    <td><a href="/User/Edit/@i.StudentID">|Edit</a></td>
+                    <td><a href="/User/Delete/@i.StudentID">|Delete</a></td>
+                </tr>
+
+            }
+        </tbody>
+
+
+
+    </table>
+}

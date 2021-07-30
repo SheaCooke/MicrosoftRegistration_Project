@@ -43,3 +43,4 @@ C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\Microsoft_Registration
 C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\Microsoft_Registration_MVC_Project\MicroSoftRegistration\MicroSoftRegistration\obj\Debug\net5.0\Razor\Views\Student\StudentInfo.cshtml.g.cs
 C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\Microsoft_Registration_MVC_Project\MicroSoftRegistration\MicroSoftRegistration\obj\Debug\net5.0\Razor\Views\User\Edit.cshtml.g.cs
 C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\Microsoft_Registration_MVC_Project\MicroSoftRegistration\MicroSoftRegistration\obj\Debug\net5.0\Razor\Views\User\Delete.cshtml.g.cs
+C:\Users\Shea Cooke\Desktop\LaunchCode\C#_Web_Development\Microsoft_Registration_MVC_Project\MicroSoftRegistration\MicroSoftRegistration\obj\Debug\net5.0\Razor\Views\Student\Results.cshtml.g.cs
