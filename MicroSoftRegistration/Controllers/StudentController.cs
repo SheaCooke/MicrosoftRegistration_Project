@@ -45,6 +45,23 @@ namespace MicroSoftRegistration.Controllers
         }
 
 
+        public IActionResult HyperLink(CareerPathType searchTerm)
+        {
+            ViewBag.searchTerm = searchTerm;
+            List<Student> cpMatch = new List<Student>();
+
+            foreach (var i in StudentData.Students)
+            {
+                if (i.CareerPath == searchTerm)
+                {
+                    cpMatch.Add(i);
+
+                }
+            }
+            return View(cpMatch);
+        }
+
+
 
 
 

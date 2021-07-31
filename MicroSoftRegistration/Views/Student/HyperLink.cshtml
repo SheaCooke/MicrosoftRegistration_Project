@@ -14,11 +14,11 @@ else
 {
     if (Model.Count == 1)
     {
-        <p>We found 1 student with the name <span class="SearchTerm">@ViewBag.searchTerm</span> </p>
+<p>We found 1 student with the <span class="SearchTerm">@ViewBag.searchTerm</span> career path</p>
     }
     else
     {
-        <p>We found @Model.Count students with the name <span class="SearchTerm">@ViewBag.searchTerm</span></p>
+<p>We found @Model.Count students with the <span class="SearchTerm">@ViewBag.searchTerm</span> career path</p>
     }
     <br />
     <table class="table">
@@ -36,17 +36,17 @@ else
         <tbody>
             @foreach (var i in Model)
             {
-                
 
 
-            <tr>
-                <td>@i.StudentID</td>
-                <td>@i.FName</td>
-                <td>@i.LName</td>
-                <td>@i.CareerPath</td>
-                <td><a href="/User/Edit/@i.StudentID">|Edit</a></td>
-                <td><a href="/User/Delete/@i.StudentID">|Delete</a></td>
-            </tr>
+
+                <tr>
+                    <td>@i.StudentID</td>
+                    <td>@i.FName</td>
+                    <td>@i.LName</td>
+                    <td>@i.CareerPath</td>
+                    <td><a href="/User/Edit/@i.StudentID">|Edit</a></td>
+                    <td><a href="/User/Delete/@i.StudentID">|Delete</a></td>
+                </tr>
 
             }
         </tbody>
@@ -56,3 +56,4 @@ else
     </table>
     <a asp-controller="Student" asp-action="StudentInfo" class="btn btn-success" role="button">Go Back</a>
 }
+

@@ -37,12 +37,13 @@
                     </thead>
                     <tbody>
                         @foreach (var i in Model)
-                             {
+                        {
+                            string cp = String.Format("{0}", i.CareerPath);
                                 <tr>
                                     <td>@i.StudentID</td>
                                     <td>@i.FName</td>
                                     <td>@i.LName</td>
-                                    <td>@i.CareerPath</td>
+                                    <td>@Html.ActionLink(cp, "HyperLink", "Student", routeValues: new { searchTerm = i.CareerPath })</td>
                                     <td><a asp-controller="User" asp-action="Edit" asp-route-id="@i.StudentID">|Edit</a></td>
                                     <td><a href="/User/Delete/@i.StudentID">|Delete</a></td>
                                 </tr>
