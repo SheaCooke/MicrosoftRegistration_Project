@@ -15,13 +15,13 @@ namespace MicroSoftRegistration.Models
 
         public CareerPathType CareerPath { get; set; }
 
-        private static int NextID = 1;
+        //private static int NextID = 1;
 
 
         public Student()
         {
-            this.StudentID = NextID;
-            NextID++;
+            /*this.StudentID = NextID;
+            NextID++;*/
         }
 
         public Student(int studentID, string fName, string lName, CareerPathType careerPath) :this()

@@ -11,9 +11,16 @@ namespace MicroSoftRegistration.Controllers
 {
     public class UserController : Controller
     {
+        private RegistrationDbContext _context;
+        public UserController(RegistrationDbContext dbContext)
+        {
+            this._context = dbContext;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            List<Student> Students = _context.Students.ToList();
+            return View(Students);
         }
 
         public IActionResult Register()
@@ -37,7 +44,8 @@ namespace MicroSoftRegistration.Controllers
                     
                 };
 
-                StudentData.Add(newStudent);
+                _context.Students.Add(newStudent);
+                _context.SaveChanges();
                 return Redirect("/Student/StudentInfo");
             }
 
@@ -49,7 +57,7 @@ namespace MicroSoftRegistration.Controllers
         
         public IActionResult Edit(int id)
         {
-            ViewBag.Student = StudentData.GetById(id);
+            ViewBag.Student = _context.Students.Find(id);
             RegisterUserViewModel registerUserViewModel = new RegisterUserViewModel();
 
             return View(registerUserViewModel);
@@ -65,16 +73,16 @@ namespace MicroSoftRegistration.Controllers
 
             if (ModelState.IsValid)
             {
-                StudentData.Students.Where(x => x.StudentID == id).ToList().ForEach(x => x.FName = registerUserViewModel.FName);
-                StudentData.Students.Where(x => x.StudentID == id).ToList().ForEach(x => x.LName = registerUserViewModel.LName);
-                StudentData.Students.Where(x => x.StudentID == id).ToList().ForEach(x => x.CareerPath = registerUserViewModel.CareerPath);
+                _context.Students.Where(x => x.StudentID == id).ToList().ForEach(x => x.FName = registerUserViewModel.FName);
+                _context.Students.Where(x => x.StudentID == id).ToList().ForEach(x => x.LName = registerUserViewModel.LName);
+                _context.Students.Where(x => x.StudentID == id).ToList().ForEach(x => x.CareerPath = registerUserViewModel.CareerPath);
 
 
-
+                _context.SaveChanges();
                 return Redirect("/Student/StudentInfo");
             }
 
-            ViewBag.Student = StudentData.GetById(id);
+            ViewBag.Student = _context.Students.Find(id);
 
             return View(registerUserViewModel);
 
@@ -87,7 +95,7 @@ namespace MicroSoftRegistration.Controllers
         [Route("/User/Delete/{id}")]
         public IActionResult Delete(int id)
         {
-            return View("Delete", StudentData.GetById(id));
+            return View("Delete", _context.Students.Find(id));
         }
 
 
@@ -95,7 +103,9 @@ namespace MicroSoftRegistration.Controllers
         [Route("/User/Delete/{id}")]
         public IActionResult DeletePost(int id)
         {
-            StudentData.RemoveById(id);
+            Student removeStudent = _context.Students.Find(id);
+            _context.Students.Remove(removeStudent);
+            _context.SaveChanges();
             return Redirect("/Student/StudentInfo");
         }
 

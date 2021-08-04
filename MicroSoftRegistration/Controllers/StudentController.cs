@@ -10,6 +10,14 @@ namespace MicroSoftRegistration.Controllers
 {
     public class StudentController : Controller
     {
+        private RegistrationDbContext _context;
+        public StudentController(RegistrationDbContext dbContext)
+        {
+            this._context = dbContext;
+        }
+
+
+
         public IActionResult Index()
         {
             return View();
@@ -18,7 +26,7 @@ namespace MicroSoftRegistration.Controllers
 
         public IActionResult StudentInfo()
         {
-            return View(StudentData.Students);
+            return View(_context.Students.ToList());
         }
 
         [HttpPost]
@@ -34,7 +42,7 @@ namespace MicroSoftRegistration.Controllers
             }
             
 
-            foreach (var i in StudentData.Students)
+            foreach (var i in _context.Students)
             {
                 if (i.FName.ToLower() == searchTerm.ToLower().Trim() || i.LName.ToLower() == searchTerm.ToLower().Trim())
                 {
@@ -50,7 +58,7 @@ namespace MicroSoftRegistration.Controllers
             ViewBag.searchTerm = searchTerm;
             List<Student> cpMatch = new List<Student>();
 
-            foreach (var i in StudentData.Students)
+            foreach (var i in _context.Students)
             {
                 if (i.CareerPath == searchTerm)
                 {
